@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-# This is my publich RSA key
-
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCF8aZebmpPwdjJypmJkMLbcKcbAvVxNVGhONH3j4nf5+3SR83z0/1TveSHzBLBoZ0EGJhwOzcDr+kUKqkpagN1bFVIROZJx9JLfplGGNE9ODca04U0fuQ3V+GHjYgd/uPv2ctIAQdXmnyUDpZXAO7Bw11vXvTIgRnE3fdLvsoXIQ9LEL3xMPJg0W2jOacgmQI6qUcNX7oqB+bI510m0+fBcM1mD8NS8icryvZndw73tf+ynSkI/uO+udipb1kEPlE1DAuT4WsDQdlUequA/J+hoW6Zs11gPye8D9hYAAuwuaOiv59zsaA3vfl+0PsieFCi9s5ZLzofNwFCInbsTzyT
