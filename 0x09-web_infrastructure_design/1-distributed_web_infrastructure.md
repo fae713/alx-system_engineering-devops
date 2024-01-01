@@ -2,7 +2,7 @@
 
 ![1-distributed_web_infrastructure](https://github.com/Astrokojo/alx-system_engineering-devops/assets/60085282/d84054ae-c157-4560-9068-9b245a1bf57d)
 
-https://github.com/Astrokojo/alx-system_engineering-devops/blob/eaf1c5cc5464148a49ffa1b62b0e0fd172dcf5e1/0x09-web_infrastructure_design/1-distributed_web_infrastructure
+https://github.com/fae713/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/1-distributed_web_infrastructure
 
 ## Description
 
