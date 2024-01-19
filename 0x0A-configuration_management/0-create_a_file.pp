@@ -1,8 +1,4 @@
-/*
-This manifest creates a file with the path /tmp/school/
-and stores the content 'I love Puppet'
-*/
-
+# This manifest creates a file in /tmp
 file { '/tmp/school':
 ensure  => 'file',
 mode    => '0744',
