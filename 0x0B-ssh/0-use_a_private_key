@@ -1,14 +1,4 @@
 #!/usr/bin/env bash
-
-# A bash script that connect to my serverusing ssh
-
-# Server details
-server_address="34.204.60.129"
-user="ubuntu"
-
-# Set the SSH private key as an environment variable
-export SSH_PRIVATE_KEY=~/.ssh/school
-
-# SSH command without using -i flag
-ssh $user@$34.204.60.129
-
+# A Bash script that uses ssh to connect to your server
+ 
+ssh -i ~/.ssh/school ubuntu@54.237.3.91
