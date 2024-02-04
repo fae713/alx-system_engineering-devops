@@ -2,10 +2,10 @@
 # Installs NginX web server
 
 # Update package list
-sudo apt-get update
+sudo apt-get -y update
 
 # Install Nginx
-sudo apt-get install -y nginx
+sudo apt-get -y install  nginx
 
 # Create a file to store the string 'Hello World'
 echo "Hello World!" | sudo tee /var/www/html/index.html
