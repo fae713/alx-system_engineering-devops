@@ -21,10 +21,10 @@ backend b571ba94d534_backend
 "
 
 # Create or overwrite the HAProxy configuration file
-echo "$haproxy_config" | sudo tee /etc/haproxy/haproxy.cfg > /dev/null
+echo "$haproxy_config" | sudo tee /etc/haproxy/haproxy.cfg
 
 # Enable HAProxy to be started by init script
-echo "ENABLED=1" | sudo tee -a /etc/default/haproxy > /dev/null
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
 
 # Test the HAProxy configuration file
 sudo haproxy -c -f /etc/haproxy/haproxy.cfg
@@ -34,4 +34,3 @@ sudo service haproxy restart
 
 # Print a message indicating successful setup
 echo "HAProxy has been installed and configured."
-
