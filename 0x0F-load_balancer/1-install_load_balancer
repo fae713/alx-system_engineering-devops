@@ -1,27 +1,37 @@
 #!/usr/bin/env bash
-# Create a script to install and configure HAProxy
+# Script to install and configure HAProxy
 
+# Update package lists
 sudo apt-get -y update
-apt-get -y install haproxy
 
-server_config=\
+# Install HAProxy
+sudo apt-get -y install haproxy
+
+# HAProxy configuration
+haproxy_config="
+frontend b571ba94d534_frontend
+    bind *:80
+    mode http
+    default_backend b571ba94d534_backend
+
+backend b571ba94d534_backend
+    balance roundrobin
+    server 357156-web-01 52.91.118.183:80 check
+    server 357156-web-02 52.3.247.249:80 check
 "
-frontend fae_frontend
-        bind *:80
-        mode http
-        default_backend eric_backend
-backend fae_backend
-        balance roundrobin
-        server 357156-web-01 52.91.118.183:80 check
-        server 357156-web-02 52.3.247.249:80 check
-"
-echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
-# enable haproxy to be started by init script
-echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+# Create or overwrite the HAProxy configuration file
+echo "$haproxy_config" | sudo tee /etc/haproxy/haproxy.cfg > /dev/null
 
-# Testing the HAproxy configuration file
+# Enable HAProxy to be started by init script
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy > /dev/null
+
+# Test the HAProxy configuration file
 sudo haproxy -c -f /etc/haproxy/haproxy.cfg
 
-# Restart the Nginx service
+# Restart the HAProxy service
 sudo service haproxy restart
+
+# Print a message indicating successful setup
+echo "HAProxy has been installed and configured."
+
