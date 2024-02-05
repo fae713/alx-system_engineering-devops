@@ -2,4 +2,5 @@
 #get Apache to run on the container and to return
 #a page containing Hello Holberton
 
-service apache2 restart
+start apache2 inside docker
+service apache2 start
