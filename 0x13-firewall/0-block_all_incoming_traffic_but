@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# This script installs UWF on my server and configures it.
+
+# This script gets all updates
+sudo apt-get update
+
+# Installing ufw
+echo -e "Installing UFW\n"
+sudo apt-get install -y ufw
+
+#Configuring UFW and allowing outgoing and denying incoming networks
+echo -e "Configuring ufw\n"
+
+echo -e "Allow and Deny...\n"
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+echo -e "Allow ports\n"
+
+sudo ufw allow  22/tcp
+sudo ufw allow  443/tcp
+sudo ufw allow  80/tcp
+
+#Enabling the firewall
+sudo ufw enable
+
+#Checking that the rules has applied
+sudo ufw status verbose
