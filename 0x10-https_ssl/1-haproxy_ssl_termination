@@ -49,4 +49,4 @@ frontend b571ba94d534_frontend-https
 backend b571ba94d534_backend
     balance roundrobin
     server 357156-web-01 52.91.118.183:80 check
-    server 357156-web-02 52.3.247.249:80 check
+    server 357156-web-02 54.160.94.106:80 check

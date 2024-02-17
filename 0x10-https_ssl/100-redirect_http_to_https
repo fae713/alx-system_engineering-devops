@@ -17,7 +17,7 @@ global
         ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
         ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets
 
-	defaults
+        defaults
         log     global
         mode    http
         option  httplog
@@ -37,16 +37,17 @@ global
 frontend b571ba94d534_frontend
         bind *:80
         mode http
-        http-request redirect scheme https code 301 unless { ssl_fc }
+        http-request redirect scheme https code 301 unless { ssl_fc }        
         http-request set-header X_Forwarded-Proto http
         default_backend b571ba94d534_backend
 
 frontend b571ba94d534_frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/www.faecodehub.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.faecodehub.tech.pem        
         http-request set-header X-Forwarded-Proto https
         default_backend b571ba94d534_backend
 
 backend b571ba94d534_backend
     balance roundrobin
-    server 357156-web-01 52.91.118.183:80 check
-    server 357156-web-02 52.3.247.249:80 check
+    server  357156-web-01  52.91.118.183:80 check
+    server  357156-web-02  54.160.94.106:80 check
+
