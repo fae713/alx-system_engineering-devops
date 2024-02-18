@@ -1,0 +1,26 @@
+#!/bin/env bash
+# Bash script that creates a MySQL dump and store it in backup.sql
+
+#setting the date
+current_date=$(date +%d-%m-%Y)
+
+# Set the archive file name
+archive_file="${current_date}.tar.gz"
+
+# Create the MySQL dump
+sudo mysqldump --all-databases -u root --password="$1" > backup.sql
+
+# Check if the dump was successful
+if [ $? -eq  0 ]; then
+    # Compress the dump file into a tar.gz archive
+    tar -czf "$archive_file" backup.sql
+    
+    # Check if the compression was successful
+    if [ $? -eq  0 ]; then
+        echo "MySQL dump has been successfully created and compressed: $archive_file"
+    else
+        echo "Failed to compress the MySQL dump."
+    fi
+else
+    echo "Failed to create the MySQL dump." 
+fi
