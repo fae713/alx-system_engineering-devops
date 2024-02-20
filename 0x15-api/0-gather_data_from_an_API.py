@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 This is a python script that uses REST API for
 a given employee ID, returns information about
@@ -11,29 +12,36 @@ The script must display the following;
 4) Second and N next lines display the title of completed tasks.
 """
 
-import sys
-import json
+from sys import argv
 import requests
-
+import json
 
 if __name__ == "__main__":
+    if len(argv) < 2:
+        print("Usage: python script.py <employee_id>")
+        exit(1)
+
     session = requests.Session()
 
-    url = "https://jsonplaceholder.typicode.com/"
-    employee_id = sys.argv[1]
-    employee_id_param = {'userid': employee_id}
-    employee_res = session.get(url + "user/{}".format(employee_id))
-    employee = employee_res.json()
-    todos_res = session.get(url + "todos", params=employee_id_param)
-    todos = todos_res.json()
+    u_id = argv[1]
+    idURL = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(u_id)
+    nameURL = 'https://jsonplaceholder.typicode.com/users/{}'.format(u_id)
 
-    completed = []
+    emp = session.get(idURL)
+    employeeName = session.get(nameURL)
 
-    for todo in todos:
-        if todo.get("completed") is True:
-            completed.append(todo.get("title"))
+    json_requests = emp.json()
+    name = employeeName.json()['name']
 
-    print("Employee {} is done with tasks({}/{}):".format(
-        employee.get("name"), len(completed), len(todos)))
+    total_tasks = 0
 
-    [print("\t {}".format(complete)) for complete in completed]
+    for completed_tasks in json_requests:
+        if completed_tasks['completed']:
+            total_tasks += 1
+
+    print("Employee {} is done with tasks({}/{}):".
+          format(name, total_tasks, len(json_requests)))
+
+    for completed_tasks in json_requests:
+        if completed_tasks['completed']:
+            print("\t " + completed_tasks.get('title'))
