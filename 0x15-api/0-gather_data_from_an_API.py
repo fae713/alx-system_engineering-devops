@@ -23,14 +23,15 @@ if __name__ == "__main__":
 
     session = requests.Session()
 
+    #u_id is the employee ID
     u_id = argv[1]
     idURL = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(u_id)
     nameURL = 'https://jsonplaceholder.typicode.com/users/{}'.format(u_id)
 
-    emp = session.get(idURL)
+    employee = session.get(idURL)
     employeeName = session.get(nameURL)
 
-    json_requests = emp.json()
+    json_requests = employee.json()
     name = employeeName.json()['name']
 
     total_tasks = 0
