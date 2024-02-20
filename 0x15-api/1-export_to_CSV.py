@@ -27,7 +27,7 @@ if __name__ == "__main__":
     with open(f"{u_id}.csv", "w", newline='') as USER_ID:
 
         csvwriter = csv.writer(USER_ID, delimiter=',',
-                               quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                               quotechar='"', quoting=csv.QUOTE_ALL)
 
         #csvwriter.writerow(["USER_ID", "USERNAME",
          #                  "TASK_COMPLETED_STATUS", "TASK_TITLE"])
