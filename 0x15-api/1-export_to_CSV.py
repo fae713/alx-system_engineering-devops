@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Extending my python script to CSV format
+Export the api data to CSV format
 """
 
 from sys import argv
@@ -9,7 +9,7 @@ import csv
 
 if __name__ == "__main__":
     if len(argv) < 2:
-        print("Usage: python script.py <employee_id>")
+        print("Missing <employee_id>")
         exit(1)
 
     session = requests.Session()
@@ -24,9 +24,9 @@ if __name__ == "__main__":
 
     json_requests = employee.json()
 
-    with open(f"{u_id}.csv", "w", newline='') as USER_ID:
+    with open(f"{u_id}.csv", "w", newline='') as csvfile:
 
-        csvwriter = csv.writer(USER_ID, delimiter=',',
+        csvwriter = csv.writer(csvfile, delimiter=',',
                                quotechar='"', quoting=csv.QUOTE_ALL)
 
         #csvwriter.writerow(["USER_ID", "USERNAME",

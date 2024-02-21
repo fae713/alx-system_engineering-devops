@@ -24,18 +24,14 @@ if __name__ == "__main__":
 
     json_requests = employee.json()
 
-    totalTasks = []
-
-    userData = {}
-
-    for todo in json_requests:
-        totalTasks.append(
-                {
-                    "task": todo.get("title"),
-                    "completed": todo.get("completed"),
-                    "username": employeeName.json()['username'],
-                })
-    userData[u_id] = totalTasks
+    userData = [
+            {
+                "task": todo.get("title"),
+                "completed": todo.get("completed"),
+                "username": employeeName.json()['username']
+            }
+            for todo in json_requests
+        ]
 
     with open(f"{u_id}.json", "w") as USER_ID:
-        json.dump(userData, USER_ID)
+        json.dump(userData, USER_ID, indent=4)
