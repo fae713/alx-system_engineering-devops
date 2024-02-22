@@ -12,9 +12,9 @@ The script must display the following;
 4) Second and N next lines display the title of completed tasks.
 """
 
-from sys import argv
-import requests
 import json
+import requests
+from sys import argv
 
 if __name__ == "__main__":
     if len(argv) < 2:
@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     session = requests.Session()
 
-    #u_id is the employee ID
+    # u_id is the employee ID
     u_id = argv[1]
     idURL = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(u_id)
     nameURL = 'https://jsonplaceholder.typicode.com/users/{}'.format(u_id)

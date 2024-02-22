@@ -3,9 +3,9 @@
 Export the api data to CSV format
 """
 
-from sys import argv
-import requests
 import csv
+import requests
+from sys import argv
 
 if __name__ == "__main__":
     if len(argv) < 2:
@@ -28,9 +28,6 @@ if __name__ == "__main__":
 
         csvwriter = csv.writer(csvfile, delimiter=',',
                                quotechar='"', quoting=csv.QUOTE_ALL)
-
-        #csvwriter.writerow(["USER_ID", "USERNAME",
-         #                  "TASK_COMPLETED_STATUS", "TASK_TITLE"])
 
         for todo in json_requests:
             csvwriter.writerow([u_id, employeeName.json()['username'],

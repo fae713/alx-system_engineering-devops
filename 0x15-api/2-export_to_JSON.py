@@ -3,12 +3,12 @@
 Exporting the data to JSON format
 """
 
-from sys import argv
-import requests
 import json
+import requests
+from sys import argv
 
 if __name__ == "__main__":
-    if len(argv) <  2:
+    if len(argv) < 2:
         print("Usage: python script.py <employee_id>")
         exit(1)
 
