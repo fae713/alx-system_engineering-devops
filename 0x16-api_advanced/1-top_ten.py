@@ -5,6 +5,7 @@ the titles of the first 10 hot posts listed for a given subreddit.
 """
 
 import requests
+from sys import argv
 
 
 def top_ten(subreddit):
@@ -29,4 +30,4 @@ def top_ten(subreddit):
 
 
 if __name__ == "__main__":
-    top_ten(agrv[1])
+    top_ten(argv[1])
