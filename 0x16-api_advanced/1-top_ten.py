@@ -18,11 +18,11 @@ def top_ten(subreddit):
         response = requests.get(url, headers=headers, allow_redirects=False)
         if response.status_code == 200:
             data = response.json()
-            posts = data['data']['children']
-            titles = [post['data']['title'] for post in posts]
-            for title in titles:
-                print(title)
-        else:
+            children = data.get('data', {}).get('children', [])
+
+            for post in children:
+                print(post['data']['title'])
+        elif response.status_code == 404:
             print(None)
     except request.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
