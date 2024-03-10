@@ -12,7 +12,7 @@ def top_ten(subreddit):
     """Returns the titles of the top 10 hot posts"""
     url = f"https://www.reddit.com/r/{subreddit}/hot/.json?limit=10"
     headers = {
-            "User-Agent": "Mozilla/5.0"
+            "User-Agent": "custom-agent"
             }
     try:
         response = requests.get(url, headers=headers, allow_redirects=False)
@@ -27,7 +27,3 @@ def top_ten(subreddit):
     except request.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
         print(None)
-
-
-if __name__ == "__main__":
-    top_ten(argv[1])
